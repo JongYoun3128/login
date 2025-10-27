@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RENTAL RECIPE - 대시보드</title>
+        <link rel="stylesheet" href="infopage.css" />
+    </head>
+    <body>
+        <!-- 사이드바 -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>POINT<br />GROUND</h1>
+            </div>
+        </aside>
+
+        <!-- 메인 콘텐츠 -->
+        <main class="main-content">
+            <!-- 헤더 -->
+            <header class="header">
+                <h1><img src="images/logo.png" alt="" /></h1>
+                <a href="index.html"
+                    ><button class="login-btn">로그아웃</button></a
+                >
+            </header>
+
+            <!-- 사용자 정보 바 -->
+            <div class="user-info-bar">
+                <span> 이름 : <span id="id-name"></span>님</span>
+
+                <button class="serch-btn">금액 조회</button>
+            </div>
+
+            <!-- 수수료 대시보드 -->
+            <div class="dashboard-row">
+                <div class="commission-card red">
+                    <h3>나의 투자 금액</h3>
+                    <div class="today-value">
+                        <span id="price"></span>원 입니다.
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="infopage.js"></script>
+    </body>
+</html>
