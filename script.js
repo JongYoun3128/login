@@ -6,6 +6,65 @@ const openSignupBtn = document.getElementById("openSignupBtn");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const cancelSignupBtn = document.getElementById("cancelSignupBtn");
 
+// 👉👉👉👉👉 탐훈 작업 시작부분
+const url =
+    "https://script.google.com/macros/s/AKfycbxwx7zhRkxBWZ-bc_E99HBMaFAOfyNBoqh8CAkbAD4SgtQs_iiqalZ0Y38PI40AuTUB/exec";
+
+const 등록하기 = async () => {
+    const sigupId = document.querySelector("#signup-username").value;
+    const sigupPas = document.querySelector("#signup-password").value;
+    const sigupPasfirm = document.querySelector("#confirm-password").value;
+    const sigupName = document.querySelector("#name").value;
+    const sigupTel = document.querySelector("#phone").value;
+    const sigupEmail = document.querySelector("#email").value;
+    const sigupAddress = document.querySelector("#address").value;
+    const sigupSsn = document.querySelector("#ssn").value;
+
+    const 회원가입정보 = {
+        memberId: sigupId,
+        password: sigupPas,
+        name: sigupName,
+        tel: sigupTel,
+        address: sigupAddress,
+        email: sigupEmail,
+        registNumber: sigupSsn,
+    };
+
+    // const 회원가입정보 = {
+    //     memberId: "asdd",
+    //     password: "1234",
+    //     name: "현종윤",
+    //     tel: "010-1234-5678",
+    //     address: "용산구",
+    //     email: "1234@gmail.com",
+    //     registNumber: "940000-0000000",
+    // };
+    console.log(회원가입정보);
+    const res = await fetch(url, {
+        redirect: "follow",
+        method: "POST",
+        headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(회원가입정보),
+    });
+};
+
+// ✅ 등록테스트
+등록하기();
+
+const 로그인 = () => {
+    const 유저입력아이디 = "tomhoon";
+    const 유저입력비번 = "1234";
+
+    fetch(url + `?memberId=${유저입력아이디}&password=${유저입력비번}`);
+};
+
+// ✅ 로그인테스트
+// 로그인();
+
+// 👉👉👉👉👉 탐훈 작업 끝부분
+
 // 로그인 폼 제출 이벤트
 loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
