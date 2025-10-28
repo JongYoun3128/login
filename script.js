@@ -8,7 +8,7 @@ const cancelSignupBtn = document.getElementById("cancelSignupBtn");
 
 // 👉👉👉👉👉 탐훈 작업 시작부분
 const url =
-    "https://script.google.com/macros/s/AKfycbwVNdw8rACGmYH-JaTvjWGDwN_FDyB0vPllHPoHUdbKHM8DEcw6NGpSd_b6z7fByAzE/exec";
+    "https://script.google.com/macros/s/AKfycbyaMHG2_obNys3HzdxfBqNc2swNiB-Yy123uCjYb5FXIrizNgyTmH21-pPyPLXsEe_-/exec";
 
 const 등록하기 = async () => {
     const sigupId = document.querySelector("#signup-username").value;
@@ -60,20 +60,22 @@ const 로그인 = async () => {
         alert("아이디와 비밀번호를 입력해주세요.");
         return;
     }
-    const 로그인정보 = {
-        memberId: 유저입력아이디,
-        password: 유저입력비번,
-    };
 
-    const res = await fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-Type": "text/plain;charset=utf-8",
-        },
-        body: JSON.stringify(로그인정보),
-    });
+    const res = await fetch(`${url}?memberId=${유저입력아이디}&password=${유저입력비번}`);
+    const data = await res.json();
+
+    if (data) {
+        // 로그인 성공처리
+        // 로컬스토리지에 아이디 넣고
+        // 페이지이동
+        localStorage.setItem("memberInfo", JSON.stringify(data));
+        location.href = "infopage.html";
+    } else {
+        // 로그인 실패처리
+        // 모달창 띄우기
+        alert("아이디와 비밀번호 확인해주세요");
+    }
 };
-
 // const 로그인 = () => {
 //     const 유저입력아이디 = "tomhoon";
 //     const 유저입력비번 = "1234";

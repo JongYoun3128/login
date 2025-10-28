@@ -19,25 +19,19 @@
             <!-- 헤더 -->
             <header class="header">
                 <h1><img src="images/logo.png" alt="" /></h1>
-                <a href="index.html"
-                    ><button class="login-btn">로그아웃</button></a
-                >
+                <a href="index.html"><button class="login-btn" onclick="logOut()">로그아웃</button></a>
             </header>
 
             <!-- 사용자 정보 바 -->
             <div class="user-info-bar">
                 <span> 이름 : <span id="id-name"></span>님</span>
-
-                <button class="serch-btn">금액 조회</button>
             </div>
 
             <!-- 수수료 대시보드 -->
             <div class="dashboard-row">
                 <div class="commission-card red">
                     <h3>나의 투자 금액</h3>
-                    <div class="today-value">
-                        <span id="price"></span>원 입니다.
-                    </div>
+                    <div class="today-value"><span id="price"></span>원 입니다.</div>
                 </div>
             </div>
         </main>
@@ -45,3 +39,16 @@
         <script src="script.js"></script>
     </body>
 </html>
+<script>
+    const data = localStorage.getItem("memberInfo");
+    const 데이터 = JSON.parse(data);
+    console.log(데이터.문자금액);
+    const Name = document.querySelector("#id-name");
+    const cash = document.querySelector("#price");
+    Name.innerHTML = 데이터.네임;
+    cash.innerHTML = 데이터.문자금액;
+
+    const logOut = () => {
+        window.localStorage.clear();
+    };
+</script>
