@@ -39,7 +39,7 @@ const 등록하기 = async () => {
     //     email: "1234@gmail.com",
     //     registNumber: "940000-0000000",
     // };
-    console.log(회원가입정보);
+
     const res = await fetch(url, {
         redirect: "follow",
         method: "POST",
@@ -52,13 +52,34 @@ const 등록하기 = async () => {
 
 // ✅ 등록테스트
 
-const 로그인 = () => {
-    const 유저입력아이디 = "tomhoon";
-    const 유저입력비번 = "1234";
+const 로그인 = async () => {
+    const 유저입력아이디 = document.querySelector("#username").value;
+    const 유저입력비번 = document.querySelector("#password").value;
 
-    fetch(url + `?memberId=${유저입력아이디}&password=${유저입력비번}`);
+    if (!유저입력아이디 || !유저입력비번) {
+        alert("아이디와 비밀번호를 입력해주세요.");
+        return;
+    }
+    const 로그인정보 = {
+        memberId: 유저입력아이디,
+        password: 유저입력비번,
+    };
+
+    const res = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(로그인정보),
+    });
 };
 
+// const 로그인 = () => {
+//     const 유저입력아이디 = "tomhoon";
+//     const 유저입력비번 = "1234";
+
+//     fetch(url + `?memberId=${유저입력아이디}&password=${유저입력비번}`);
+// }
 // ✅ 로그인테스트
 // 로그인();
 
