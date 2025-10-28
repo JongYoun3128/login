@@ -8,7 +8,7 @@ const cancelSignupBtn = document.getElementById("cancelSignupBtn");
 
 // 👉👉👉👉👉 탐훈 작업 시작부분
 const url =
-    "https://script.google.com/macros/s/AKfycbxwx7zhRkxBWZ-bc_E99HBMaFAOfyNBoqh8CAkbAD4SgtQs_iiqalZ0Y38PI40AuTUB/exec";
+    "https://script.google.com/macros/s/AKfycbwVNdw8rACGmYH-JaTvjWGDwN_FDyB0vPllHPoHUdbKHM8DEcw6NGpSd_b6z7fByAzE/exec";
 
 const 등록하기 = async () => {
     const sigupId = document.querySelector("#signup-username").value;
@@ -51,7 +51,6 @@ const 등록하기 = async () => {
 };
 
 // ✅ 등록테스트
-등록하기();
 
 const 로그인 = () => {
     const 유저입력아이디 = "tomhoon";
