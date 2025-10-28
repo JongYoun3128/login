@@ -324,9 +324,6 @@ body {
     .form-group input {
         width: 300px;
     }
-    .form-group-id input {
-        width: 350px;
-    }
 }
 
 @media (max-width: 500px) {
