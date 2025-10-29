@@ -8,7 +8,7 @@ const cancelSignupBtn = document.getElementById("cancelSignupBtn");
 
 // 👉👉👉👉👉 탐훈 작업 시작부분
 const url =
-    "https://script.google.com/macros/s/AKfycbyaMHG2_obNys3HzdxfBqNc2swNiB-Yy123uCjYb5FXIrizNgyTmH21-pPyPLXsEe_-/exec";
+    "https://script.google.com/macros/s/AKfycbynNDmvVBqzKNfwGP9oEhHzJ6XG-smqw7zbXI5OFEjj5vFldoFERcfgfwe0mn_RQmBI/exec";
 
 const 등록하기 = async () => {
     const sigupId = document.querySelector("#signup-username").value;
@@ -29,17 +29,10 @@ const 등록하기 = async () => {
         email: sigupEmail,
         registNumber: sigupSsn,
     };
-
-    // const 회원가입정보 = {
-    //     memberId: "asdd",
-    //     password: "1234",
-    //     name: "현종윤",
-    //     tel: "010-1234-5678",
-    //     address: "용산구",
-    //     email: "1234@gmail.com",
-    //     registNumber: "940000-0000000",
-    // };
-
+    if (sigupPas !== sigupPasfirm) {
+        alert("비밀번호가 일치하지 않습니다.");
+        return;
+    }
     const res = await fetch(url, {
         redirect: "follow",
         method: "POST",
@@ -61,7 +54,9 @@ const 로그인 = async () => {
         return;
     }
 
-    const res = await fetch(`${url}?memberId=${유저입력아이디}&password=${유저입력비번}`);
+    const res = await fetch(
+        `${url}?memberId=${유저입력아이디}&password=${유저입력비번}`
+    );
     const data = await res.json();
 
     if (data) {
