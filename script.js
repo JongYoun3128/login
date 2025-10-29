@@ -8,7 +8,7 @@ const cancelSignupBtn = document.getElementById("cancelSignupBtn");
 
 // 👉👉👉👉👉 탐훈 작업 시작부분
 const url =
-    "https://script.google.com/macros/s/AKfycbynNDmvVBqzKNfwGP9oEhHzJ6XG-smqw7zbXI5OFEjj5vFldoFERcfgfwe0mn_RQmBI/exec";
+    "https://script.google.com/macros/s/AKfycbyw0UeUpx-y9eJ1T3zLqkl8LOzBVkU1OTgG0gAzuGGe5chJrArzE6n4f6ZR4FUMfGs/exec";
 
 const 등록하기 = async () => {
     const sigupId = document.querySelector("#signup-username").value;
